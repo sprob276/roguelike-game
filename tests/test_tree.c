@@ -58,6 +58,13 @@ START_TEST(test_finding_node_when_empty_with_contents) {
 }
 END_TEST
 
+START_TEST(test_compare_strings_when_equal) {
+    int result;
+    result = compareStrings("string", "string");
+    ck_assert_int_eq(result, 0);
+}
+END_TEST
+
 
 /* ---------- Suite and Runner ---------- */
 
@@ -73,6 +80,7 @@ Suite *tree_suite(void) {
     tcase_add_test(tc, test_finding_node); //first test added
     tcase_add_test(tc, test_finding_node_when_empty);
     tcase_add_test(tc, test_finding_node_when_empty_with_contents);
+    tcase_add_test(tc, test_compare_strings_when_equal);
 
   
 
