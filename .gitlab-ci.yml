@@ -8,8 +8,8 @@ variables:
   GRADER_REF: "main"             
   ASSIGNMENT: "A0"
                       # change only the next two lines, nothing else
-  STUDENT_ID: "yourusername"   # put your username here
-  STUDENT_REPO: "yourusername/A0"  # put your username/A0 here
+  STUDENT_ID: "rspataru"   # put your username here
+  STUDENT_REPO: "rspataru/A0"  # put your username/A0 here
   STUDENT_BRANCH: "main"
 
 trigger_a0_grader:
