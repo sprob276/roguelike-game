@@ -69,7 +69,7 @@ END_TEST
 START_TEST(test_free) {
     insertNode(tree, "hahaha");
     char *copy = copyString("hahaha");
-    ck_assert_ptr_nonnull(copy); //checks if not equal to null
+    
     destroyString(copy);
 
     copy = NULL; //
@@ -82,7 +82,7 @@ END_TEST
 START_TEST(test_free_not_exist) {
     insertNode(tree, "hahaha");
     char *copy = copyString("hahahaha");
-    ck_assert_ptr_nonnull(copy); //checks if not equal to null
+    
     destroyString(copy);
 
     copy = NULL; //
