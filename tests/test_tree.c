@@ -65,6 +65,33 @@ START_TEST(test_compare_strings_when_equal) {
 }
 END_TEST
 
+//
+START_TEST(test_free) {
+    insertNode(tree, "hahaha");
+    char *copy = copyString("hahaha");
+    ck_assert_ptr_nonnull(copy); //checks if not equal to null
+    destroyString(copy);
+
+    copy = NULL; //
+    ck_assert_ptr_null(copy); //checks if equal to null   
+    
+
+}
+END_TEST
+
+START_TEST(test_free_not_exist) {
+    insertNode(tree, "hahaha");
+    char *copy = copyString("hahahaha");
+    ck_assert_ptr_nonnull(copy); //checks if not equal to null
+    destroyString(copy);
+
+    copy = NULL; //
+    ck_assert_ptr_null(copy); //checks if equal to null   
+    
+
+}
+END_TEST
+
 
 /* ---------- Suite and Runner ---------- */
 
@@ -81,6 +108,9 @@ Suite *tree_suite(void) {
     tcase_add_test(tc, test_finding_node_when_empty);
     tcase_add_test(tc, test_finding_node_when_empty_with_contents);
     tcase_add_test(tc, test_compare_strings_when_equal);
+
+    tcase_add_test(tc, test_free);
+    tcase_add_test(tc, test_free_not_exist);
 
   
 
