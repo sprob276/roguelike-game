@@ -229,7 +229,7 @@ START_TEST (test_height_one_child) {
     insertNode(tree, "d");
     int heightSolo, heightNotSolo;
     heightSolo = getNodeHeight(findNode(tree, "d"));
-    heightNotSolo = getNodeHeight(findNode(tree, "c"));
+    heightNotSolo = getNodeHeight(findNode(tree, "a"));
 
     ck_assert_int_ne(heightSolo, heightNotSolo);
 }
