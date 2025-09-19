@@ -29,16 +29,16 @@ START_TEST(test_empty_tree_root_is_null) {
 END_TEST
 
 //testing myself
-// START_TEST(test_finding_node) {
-//     char * teststring = "Robert";
-//     insertNode(tree, teststring);
-//     TreeNode * newNode; 
-//     newNode = findNode(tree, teststring);
-//     ck_assert_ptr_nonnull(newNode);
-//     ck_assert_str_eq(getNodeData(newNode), teststring); //checks if equal using strcmp
+START_TEST(test_finding_node) {
+    char * teststring = "Robert";
+    insertNode(tree, teststring);
+    TreeNode * newNode; 
+    newNode = findNode(tree, teststring);
+    ck_assert_ptr_nonnull(newNode);
+    ck_assert_str_eq(getNodeData(newNode), teststring); //checks if equal using strcmp
 
-// }
-// END_TEST
+}
+END_TEST
 
 START_TEST(test_finding_node_when_empty) {
     TreeNode * newNode;
@@ -194,7 +194,7 @@ Suite *tree_suite(void) {
     /* Empty tree */
     tcase_add_test(tc, test_create_tree_not_null);
     tcase_add_test(tc, test_empty_tree_root_is_null);
-//    tcase_add_test(tc, test_finding_node); //first test added
+    tcase_add_test(tc, test_finding_node); //first test added
     tcase_add_test(tc, test_finding_node_when_empty);
     tcase_add_test(tc, test_finding_node_when_empty_with_contents);
     tcase_add_test(tc, test_compare_strings_when_equal);
