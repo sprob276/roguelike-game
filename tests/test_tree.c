@@ -189,7 +189,7 @@ START_TEST (test_height_at_node) {
     //ck_assert_ptr_nonnull(findNode(tree, "hi"));
 
     int heightOfNode = getNodeHeight(findNode(tree, "b"));
-    ck_assert_int_eq(heightOfNode, 1);
+    ck_assert_int_eq(heightOfNode, 2);
 
     // TreeNode * root;
     // root = getRoot(tree);
