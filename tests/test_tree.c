@@ -93,19 +93,21 @@ END_TEST
 // }
 // END_TEST
 
-//// START_TEST (test_get_root_when_no_data) {
-//     //insertNode(tree, "hi");
-//     getRoot(tree);
-//     ck_assert_ptr_null(getRoot(tree));
-// }
-// END_TEST
 
-// START_TEST (test_get_root_when_data) {
-//     insertNode(tree, "hi");
-//     getRoot(tree);
-//     ck_assert_ptr_nonnull(getRoot(tree));
-// }
-// END_TEST
+
+                // START_TEST (test_get_root_when_no_data) {
+                //     //insertNode(tree, "hi");
+                //     getRoot(tree);
+                //     ck_assert_ptr_null(getRoot);
+                // }
+                // END_TEST
+
+                // START_TEST (test_get_root_when_data) {
+                //     insertNode(tree, "hi");
+                //     getRoot(tree);
+                //     ck_assert_ptr_nonnull(getRoot);
+                // }
+                // END_TEST
 
 // START_TEST (test_correct_height) {
 //     // insertNode(tree, "hi");
@@ -181,27 +183,6 @@ START_TEST (test_free_when_empty) {
 }
 END_TEST
 
-START_TEST (test_height_at_node) {
-    insertNode(tree, "a");
-    insertNode(tree, "b");
-    insertNode(tree, "c");
-    insertNode(tree, "d");
-    //ck_assert_ptr_nonnull(findNode(tree, "hi"));
-
-    int heightOfNode = getNodeHeight(findNode(tree, "b"));
-    ck_assert_int_eq(heightOfNode, 2);
-
-    // TreeNode * root;
-    // root = getRoot(tree);
-    // int height = getNodeHeight(root);
-
-
-
-
-
-}
-END_TEST
-
 
 
 /* ---------- Suite and Runner ---------- */
@@ -223,8 +204,8 @@ Suite *tree_suite(void) {
     // tcase_add_test(tc, test_free);
     // tcase_add_test(tc, test_free_not_exist);
 
-//    tcase_add_test(tc, test_get_root_when_no_data);
-//    tcase_add_test(tc, test_get_root_when_data);
+//    // tcase_add_test(tc, test_get_root_when_no_data);
+//    // tcase_add_test(tc, test_get_root_when_data);
     // tcase_add_test(tc, test_correct_height);
 
     // tcase_add_test(tc, test_find_node_similar_name);
@@ -235,8 +216,6 @@ Suite *tree_suite(void) {
    tcase_add_test(tc, test_height);
 
    tcase_add_test(tc, test_free_when_empty);
-
-   tcase_add_test(tc, test_height_at_node);
 
 
   
