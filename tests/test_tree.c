@@ -94,9 +94,9 @@ END_TEST
 // END_TEST
 
 
-
+                //failing on correct variant
                 START_TEST (test_get_root_when_no_data) {
-                    //insertNode(tree, "hi");
+                    insertNode(tree, "hi");
                     getRoot(tree);
                     ck_assert_ptr_null(getRoot);
                 }
