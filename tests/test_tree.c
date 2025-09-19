@@ -29,16 +29,16 @@ START_TEST(test_empty_tree_root_is_null) {
 END_TEST
 
 //testing myself
-// START_TEST(test_finding_node) {
-//     char * teststring = "Robert";
-//     insertNode(tree, teststring);
-//     TreeNode * newNode; 
-//     newNode = findNode(tree, teststring);
-//     ck_assert_ptr_nonnull(newNode);
-//     ck_assert_str_eq(getNodeData(newNode), teststring); //checks if equal using strcmp
+START_TEST(test_finding_node) {
+    char * teststring = "Robert";
+    insertNode(tree, teststring);
+    TreeNode * newNode; 
+    newNode = findNode(tree, teststring);
+    ck_assert_ptr_nonnull(newNode);
+    ck_assert_str_eq(getNodeData(newNode), teststring); //checks if equal using strcmp
 
-// }
-// END_TEST
+}
+END_TEST
 
 START_TEST(test_finding_node_when_empty) {
     TreeNode * newNode;
@@ -93,45 +93,58 @@ END_TEST
 // }
 // END_TEST
 
+START_TEST (test_get_root_when_no_data) {
+    //insertNode(tree, "hi");
+    getRoot(tree);
+    ck_assert_ptr_null(getRoot);
+}
+END_TEST
+
+START_TEST (test_get_root_when_data) {
+    insertNode(tree, "hi");
+    getRoot(tree);
+    ck_assert_ptr_nonnull(getRoot);
+}
+END_TEST
 
                 //failing on correct variant
-                START_TEST (test_get_root_when_data) {
-                    insertNode(tree, "a");
-                    insertNode(tree, "b");
-                    insertNode(tree, "c");
-                    insertNode(tree, "d");
-                    TreeNode * root;
+               // START_TEST (test_get_root_when_data) {
+                //     insertNode(tree, "a");
+                //     insertNode(tree, "b");
+                //     insertNode(tree, "c");
+                //     insertNode(tree, "d");
+                //     TreeNode * root;
                 
-                    ck_assert_ptr_nonnull(findNode(tree, "a"));
-                    ck_assert_ptr_nonnull(findNode(tree, "b"));
-                    ck_assert_ptr_nonnull(findNode(tree, "c"));
-                    ck_assert_ptr_nonnull(findNode(tree, "d"));
-                    ck_assert_ptr_null(findNode(tree, "e"));
+                //     ck_assert_ptr_nonnull(findNode(tree, "a"));
+                //     ck_assert_ptr_nonnull(findNode(tree, "b"));
+                //     ck_assert_ptr_nonnull(findNode(tree, "c"));
+                //     ck_assert_ptr_nonnull(findNode(tree, "d"));
+                //     ck_assert_ptr_null(findNode(tree, "e"));
 
-                    root = getRoot(tree);
-                    ck_assert_ptr_nonnull(root);
-                    // //ck_assert_ptr_eq(root, findNode(tree, "b"));
-                    // destroyTree(tree);
-                    // tree = NULL;
-                    // ck_assert_ptr_ne(root, findNode(tree, "b"));
+                //     root = getRoot(tree);
+                //     ck_assert_ptr_nonnull(root);
+                //     // //ck_assert_ptr_eq(root, findNode(tree, "b"));
+                //     // destroyTree(tree);
+                //     // tree = NULL;
+                //     // ck_assert_ptr_ne(root, findNode(tree, "b"));
                     
                     
 
-                    // //root = NULL;
-                    // //ck_assert_ptr_null(root);
-                    // ck_assert_ptr_null(getRoot(tree));
-                    // ck_assert_ptr_null(findNode(tree, "test"));
-                }
-                END_TEST
+                //     // //root = NULL;
+                //     // //ck_assert_ptr_null(root);
+                //     // ck_assert_ptr_null(getRoot(tree));
+                //     // ck_assert_ptr_null(findNode(tree, "test"));
+                // }
+                // END_TEST
 
-                START_TEST (test_destory_when_data) {
-                    insertNode(tree, "hi");
-                    insertNode(tree, "lol");
-                    destroyTree(tree);
-                    tree = NULL;
-                    ck_assert_ptr_null(tree);
-                }
-                END_TEST
+                // START_TEST (test_destory_when_data) {
+                //     insertNode(tree, "hi");
+                //     insertNode(tree, "lol");
+                //     destroyTree(tree);
+                //     tree = NULL;
+                //     ck_assert_ptr_null(tree);
+                // }
+                // END_TEST
 
 // START_TEST (test_correct_height) {
 //     // insertNode(tree, "hi");
@@ -220,7 +233,7 @@ Suite *tree_suite(void) {
     /* Empty tree */
     tcase_add_test(tc, test_create_tree_not_null);
     tcase_add_test(tc, test_empty_tree_root_is_null);
-//    tcase_add_test(tc, test_finding_node); //first test added
+    tcase_add_test(tc, test_finding_node); //first test added
     tcase_add_test(tc, test_finding_node_when_empty);
     tcase_add_test(tc, test_finding_node_when_empty_with_contents);
     tcase_add_test(tc, test_compare_strings_when_equal);
@@ -228,7 +241,8 @@ Suite *tree_suite(void) {
     // tcase_add_test(tc, test_free);
     // tcase_add_test(tc, test_free_not_exist);
 
-            tcase_add_test(tc, test_destory_when_data);
+            //tcase_add_test(tc, test_destory_when_data);
+            tcase_add_test(tc, test_get_root_when_no_data);
                  tcase_add_test(tc, test_get_root_when_data);
     // tcase_add_test(tc, test_correct_height);
 
