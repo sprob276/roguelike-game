@@ -158,9 +158,19 @@ START_TEST (test_right) { //this one failed but lowered the score??
 
 }
 END_TEST
-    // START_TEST (test_right) {
 
-    // }
+
+START_TEST (test_height) {
+
+    insertNode(tree, "a");
+    insertNode(tree, "b");
+    insertNode(tree, "c");
+    insertNode(tree, "d");
+    int height;
+    height = getNodeHeight(getRoot(tree));
+    ck_assert_int_eq(height, 2);
+}
+END_TEST
 
 
 
@@ -191,6 +201,9 @@ Suite *tree_suite(void) {
     // tcase_add_test(tc, case_sensitive);
 
    tcase_add_test(tc, test_right);
+
+   tcase_add_test(tc, test_height);
+
 
   
 
