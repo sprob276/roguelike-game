@@ -283,6 +283,8 @@ START_TEST (test_left_but_no_right) {
     ck_assert_ptr_nonnull(left);
     ck_assert_ptr_eq(left, findNode(tree, "a"));
     ck_assert_ptr_null(right);
+    insertNode(tree, "c");
+    ck_assert_ptr_nonnull(right);
 }
 END_TEST
 
