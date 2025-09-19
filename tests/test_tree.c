@@ -172,6 +172,14 @@ START_TEST (test_height) {
 }
 END_TEST
 
+START_TEST (test_free_when_empty) {
+
+    destroyTree(tree);
+    ck_assert_ptr_null(tree);
+
+}
+END_TEST
+
 
 
 /* ---------- Suite and Runner ---------- */
@@ -203,6 +211,8 @@ Suite *tree_suite(void) {
    tcase_add_test(tc, test_right);
 
    tcase_add_test(tc, test_height);
+
+   tcase_add_test(tc, test_free_when_empty);
 
 
   
