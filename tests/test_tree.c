@@ -220,7 +220,7 @@ START_TEST (test_free_when_empty) {
 }
 END_TEST
 
-
+//notimportant
 START_TEST (test_find_non_existent) {
     insertNode(tree, "robert");
     insertNode(tree, "rob");
@@ -230,6 +230,24 @@ START_TEST (test_find_non_existent) {
     ck_assert_ptr_nonnull(findNode(tree, "rob"));
     ck_assert_ptr_null(findNode(tree, "robe"));
 
+}
+END_TEST
+
+
+START_TEST (test_paths) {
+    insertNode(tree, "a");
+    TreeNode * new;
+    new = findNode(tree, "a");
+    ck_assert_ptr_eq(getRoot(tree), new);
+    insertNode(tree, "b");
+    insertNode(tree, "c");
+    TreeNode * newagain;
+    newagain = findNode(tree, "b");
+    ck_assert_ptr_eq(getRoot(tree), newagain);
+    //insertNode(tree, "c");
+    insertNode(tree, "d");
+
+    // ck_assert_ptr_eq(findNode(tree, "a"), getNodeData(findNode(tree, "a")));
 }
 END_TEST
 
@@ -271,6 +289,8 @@ Suite *tree_suite(void) {
    tcase_add_test(tc, test_free_when_empty);
 
    tcase_add_test(tc, test_find_non_existent);
+
+   tcase_add_test(tc, test_paths);
 
 
   
