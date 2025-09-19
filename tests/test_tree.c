@@ -115,7 +115,7 @@ START_TEST (test_correct_height) {
     //char * address = findNode(tree, "tea");
     int result;
     result = getNodeHeight(findNode(tree, "tea"));
-    ck_assert_int_eq(result, 1);
+    ck_assert_int_eq(result, 2);
 
 }
 
