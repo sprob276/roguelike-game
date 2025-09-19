@@ -95,8 +95,11 @@ END_TEST
 
 START_TEST (test_get_root_when_no_data) {
     //insertNode(tree, "hi");
-    getRoot(tree);
-    ck_assert_ptr_null(getRoot);
+    TreeNode * node;//new
+    node = getRoot(tree);//new
+    //getRoot(tree);
+    //ck_assert_ptr_null(getRoot);
+    ck_assert_ptr_null(node);
 }
 END_TEST
 
@@ -250,6 +253,8 @@ START_TEST (test_paths) {
     // ck_assert_ptr_eq(findNode(tree, "a"), getNodeData(findNode(tree, "a")));
 }
 END_TEST
+
+
 
 
 
