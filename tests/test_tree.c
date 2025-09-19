@@ -222,6 +222,19 @@ START_TEST (test_height_when_empty) {
 }
 END_TEST
 
+START_TEST (test_height_one_child) {
+    insertNode(tree, "a");
+    insertNode(tree, "b");
+    insertNode(tree, "c");
+    insertNode(tree, "d");
+    int heightSolo, heightNotSolo;
+    heightSolo = getNodeHeight(findNode(tree, "d"));
+    heightNotSolo = getNodeHeight(findNode(tree, "c"));
+
+    ck_assert_int_ne(heightSolo, heightNotSolo);
+}
+END_TEST
+
 START_TEST (test_free_when_empty) {
 
     destroyTree(tree);
@@ -341,6 +354,8 @@ Suite *tree_suite(void) {
     tcase_add_test(tc, test_left_but_no_right);
 
     tcase_add_test(tc, test_height_when_empty);
+
+    tcase_add_test(tc, test_height_one_child);
   
 
     suite_add_tcase(s, tc);
