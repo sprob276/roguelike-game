@@ -138,10 +138,26 @@ START_TEST (test_right) { //this one failed but lowered the score??
     insertNode(tree, "b");
     insertNode(tree, "c");
     insertNode(tree, "d");
-    ck_assert_ptr_eq(getRightChild(findNode(tree, "d")), "d");
+    TreeNode * newNode;
+    newNode = getRoot(tree);
+    TreeNode * root = findNode(tree, "b");
+    ck_assert_ptr_eq(newNode, root);
+
+    TreeNode * d = findNode(tree, "d");
+    TreeNode * right = getRightChild(d);
+    char * address = getNodeData(right);
+    char * addressOfD = getNodeData(d);
+
+    int result = compareStrings(address, addressOfD);
+
+    ck_assert_int_eq(result, 0); //should be 0 if equal
+
+    
+    
+    //ck_assert_ptr_eq(getRightChild(findNode(tree, "d")), "d");
 
 }
-// END_TEST
+END_TEST
     // START_TEST (test_right) {
 
     // }
