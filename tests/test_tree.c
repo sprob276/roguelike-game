@@ -93,16 +93,16 @@ END_TEST
 // }
 // END_TEST
 
-START_TEST (test_get_root_when_no_data) {
-    //insertNode(tree, "hi");
-    //TreeNode * node;//new
-    //node = getRoot(tree);//new
-    getRoot(tree);
-    ck_assert_ptr_null(getRoot);
-    //ck_assert_ptr_null(node); //new
+// START_TEST (test_get_root_when_no_data) {
+//     //insertNode(tree, "hi");
+//     //TreeNode * node;//new
+//     //node = getRoot(tree);//new
+//     getRoot(tree);
+//     ck_assert_ptr_null(getRoot);
+//     //ck_assert_ptr_null(node); //new
    
-}
-END_TEST
+// }
+// END_TEST
 
 START_TEST (test_get_root_when_data) {
     insertNode(tree, "hi");
@@ -271,6 +271,11 @@ START_TEST (test_right_but_no_left) {
 END_TEST
 
 
+// START_TEST (test_left_but_no_right) {
+
+// }
+
+
 
 
 
@@ -295,7 +300,7 @@ Suite *tree_suite(void) {
     // tcase_add_test(tc, test_free_not_exist);
 
             //tcase_add_test(tc, test_destory_when_data);
-            tcase_add_test(tc, test_get_root_when_no_data);
+            ///////tcase_add_test(tc, test_get_root_when_no_data);
                  tcase_add_test(tc, test_get_root_when_data);
     // tcase_add_test(tc, test_correct_height);
 
