@@ -93,16 +93,16 @@ END_TEST
 // }
 // END_TEST
 
-// START_TEST (test_get_root_when_no_data) {
-//     //insertNode(tree, "hi");
-//     //TreeNode * node;//new
-//     //node = getRoot(tree);//new
-//     getRoot(tree);
-//     ck_assert_ptr_null(getRoot);
-//     //ck_assert_ptr_null(node); //new
+START_TEST (test_get_root_when_no_data) {
+    //insertNode(tree, "hi");
+    //TreeNode * node;//new
+    //node = getRoot(tree);//new
+    getRoot(tree);
+    ck_assert_ptr_null(getRoot);
+    //ck_assert_ptr_null(node); //new
    
-// }
-// END_TEST
+}
+END_TEST
 
 START_TEST (test_get_root_when_data) {
     insertNode(tree, "hi");
@@ -271,9 +271,20 @@ START_TEST (test_right_but_no_left) {
 END_TEST
 
 
-// START_TEST (test_left_but_no_right) {
+START_TEST (test_left_but_no_right) {
+    insertNode(tree, "b");
+    insertNode(tree, "a");
+    TreeNode * right;
+    TreeNode * left;
+    right = getRightChild(getRoot(tree));
+    left = getLeftChild(getRoot(tree));
 
-// }
+    ck_assert_ptr_nonnull(getRoot(tree));
+    ck_assert_ptr_nonnull(left);
+    ck_assert_ptr_eq(left, findNode(tree, "a"));
+    ck_assert_ptr_null(right);
+}
+END_TEST
 
 
 
@@ -300,26 +311,26 @@ Suite *tree_suite(void) {
     // tcase_add_test(tc, test_free_not_exist);
 
             //tcase_add_test(tc, test_destory_when_data);
-            ///////tcase_add_test(tc, test_get_root_when_no_data);
+            tcase_add_test(tc, test_get_root_when_no_data);
                  tcase_add_test(tc, test_get_root_when_data);
     // tcase_add_test(tc, test_correct_height);
 
     // tcase_add_test(tc, test_find_node_similar_name);
     // tcase_add_test(tc, case_sensitive);
 
-   tcase_add_test(tc, test_right);
+    tcase_add_test(tc, test_right);
 
-   tcase_add_test(tc, test_height);
+    tcase_add_test(tc, test_height);
 
-   tcase_add_test(tc, test_free_when_empty);
+    tcase_add_test(tc, test_free_when_empty);
 
-   tcase_add_test(tc, test_find_non_existent);
+    tcase_add_test(tc, test_find_non_existent);
 
-   tcase_add_test(tc, test_paths);
+    tcase_add_test(tc, test_paths);
 
-   tcase_add_test(tc, test_right_but_no_left);
+    tcase_add_test(tc, test_right_but_no_left);
 
-
+    tcase_add_test(tc, test_left_but_no_right);
   
 
     suite_add_tcase(s, tc);
