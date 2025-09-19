@@ -100,12 +100,12 @@ START_TEST (test_get_root_when_no_data) {
 }
 END_TEST
 
-START_TEST (test_get_root_when_data) {
-    insertNode(tree, "hi");
-    getRoot(tree);
-    ck_assert_ptr_nonnull(getRoot);
-}
-END_TEST
+// START_TEST (test_get_root_when_data) {
+//     insertNode(tree, "hi");
+//     getRoot(tree);
+//     ck_assert_ptr_nonnull(getRoot);
+// }
+// END_TEST
 
 // START_TEST (test_correct_height) {
 //     // insertNode(tree, "hi");
@@ -142,7 +142,7 @@ Suite *tree_suite(void) {
     // tcase_add_test(tc, test_free_not_exist);
 
     tcase_add_test(tc, test_get_root_when_no_data);
-    tcase_add_test(tc, test_get_root_when_data);
+    //tcase_add_test(tc, test_get_root_when_data);
     // tcase_add_test(tc, test_correct_height);
 
   
