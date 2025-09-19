@@ -221,6 +221,21 @@ START_TEST (test_free_when_empty) {
 END_TEST
 
 
+START_TEST (test_find_non_existent) {
+    insertNode(tree, "robert");
+    insertNode(tree, "rob");
+    insertNode(tree, "robby");
+    ck_assert_ptr_nonnull(findNode(tree, "robert"));
+    ck_assert_ptr_null(findNode(tree, " rob"));
+    ck_assert_ptr_nonnull(findNode(tree, "rob"));
+    ck_assert_ptr_null(findNode(tree, "robe"));
+
+}
+END_TEST
+
+
+
+
 
 /* ---------- Suite and Runner ---------- */
 
@@ -254,6 +269,8 @@ Suite *tree_suite(void) {
    tcase_add_test(tc, test_height);
 
    tcase_add_test(tc, test_free_when_empty);
+
+   tcase_add_test(tc, test_find_non_existent);
 
 
   
