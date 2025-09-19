@@ -97,8 +97,8 @@ END_TEST
 
                 START_TEST (test_get_root_when_no_data) {
                     //insertNode(tree, "hi");
-                    getRoot(tree);
-                    ck_assert_ptr_null(getRoot);
+                    //getRoot(tree);
+                    ck_assert_ptr_null(getRoot(tree));
                 }
                 END_TEST
 
