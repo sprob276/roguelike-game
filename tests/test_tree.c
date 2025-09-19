@@ -265,8 +265,7 @@ START_TEST (test_right_but_no_left) {
 
     ck_assert_ptr_nonnull(getRoot(tree));
     ck_assert_ptr_nonnull(right);
-    //ck_assert_ptr_eq(right, findNode(tree, "b"));
-    ck_assert_str_eq(getNodeData(right), "b");
+    ck_assert_ptr_eq(right, findNode(tree, "b"));
     ck_assert_ptr_null(left);
 }
 END_TEST
