@@ -175,6 +175,7 @@ END_TEST
 START_TEST (test_free_when_empty) {
 
     destroyTree(tree);
+    tree = NULL;
     ck_assert_ptr_null(tree);
 
 }
