@@ -215,6 +215,13 @@ START_TEST (test_height) {
 }
 END_TEST
 
+//newwwww
+START_TEST (test_height_when_empty) {
+    //getNodeHeight(getRoot(tree));
+    ck_assert_int_eq(getNodeHeight(getRoot(tree)), -1);
+}
+END_TEST
+
 START_TEST (test_free_when_empty) {
 
     destroyTree(tree);
@@ -332,6 +339,8 @@ Suite *tree_suite(void) {
     tcase_add_test(tc, test_right_but_no_left);
 
     tcase_add_test(tc, test_left_but_no_right);
+
+    tcase_add_test(tc, test_height_when_empty);
   
 
     suite_add_tcase(s, tc);
