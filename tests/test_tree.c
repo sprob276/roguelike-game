@@ -103,7 +103,7 @@ END_TEST
 START_TEST (test_get_root_when_data) {
     insertNode(tree, "hi");
     getRoot(tree);
-    ck_assert_ptr_nonnull(getRoot);
+    ck_assert_ptr_nonnull(getRoot(tree));
 }
 END_TEST
 
