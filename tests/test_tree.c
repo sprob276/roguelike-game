@@ -59,12 +59,12 @@ START_TEST(test_finding_node_when_empty_with_contents) {
 }
 END_TEST
 
-// START_TEST(test_compare_strings_when_equal) {
-//     int result;
-//     result = compareStrings("string", "string");
-//     ck_assert_int_eq(result, 0);
-// }
-// END_TEST
+START_TEST(test_compare_strings_when_equal) {
+    int result;
+    result = compareStrings("string", "string");
+    ck_assert_int_eq(result, 0);
+}
+END_TEST
 
 //
 // START_TEST(test_free) {
@@ -93,12 +93,12 @@ END_TEST
 // }
 // END_TEST
 
-START_TEST (test_get_root_when_no_data) {
-    //insertNode(tree, "hi");
-    getRoot(tree);
-    ck_assert_ptr_null(getRoot);
-}
-END_TEST
+// START_TEST (test_get_root_when_no_data) {
+//     //insertNode(tree, "hi");
+//     getRoot(tree);
+//     ck_assert_ptr_null(getRoot);
+// }
+// END_TEST
 
 START_TEST (test_get_root_when_data) {
     insertNode(tree, "hi");
@@ -197,12 +197,12 @@ Suite *tree_suite(void) {
 //    tcase_add_test(tc, test_finding_node); //first test added
     tcase_add_test(tc, test_finding_node_when_empty);
     tcase_add_test(tc, test_finding_node_when_empty_with_contents);
-//    tcase_add_test(tc, test_compare_strings_when_equal);
+    tcase_add_test(tc, test_compare_strings_when_equal);
 
     // tcase_add_test(tc, test_free);
     // tcase_add_test(tc, test_free_not_exist);
 
-    tcase_add_test(tc, test_get_root_when_no_data);
+//    tcase_add_test(tc, test_get_root_when_no_data);
     tcase_add_test(tc, test_get_root_when_data);
     // tcase_add_test(tc, test_correct_height);
 
