@@ -102,6 +102,7 @@ END_TEST
                     root = getRoot(tree);
                     root = NULL;
                     ck_assert_ptr_null(root);
+                    ck_assert_ptr_null(findNode(tree, "test"));
                 }
                 END_TEST
 
