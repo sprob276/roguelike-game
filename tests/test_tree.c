@@ -121,6 +121,28 @@ END_TEST
 
 // }
 
+//might be repetitive
+START_TEST (test_find_node_similar_name) {
+    insertNode(tree, "eating");
+    insertNode(tree, "eats");
+    ck_assert_ptr_null(findNode(tree, "eat"));
+}
+
+START_TEST (case_sensitive) {
+    insertNode(tree, "Eat");
+    ck_assert_ptr_null(findNode(tree, " Eat "));
+}
+
+START_TEST (test_right) {
+    insertNode(tree, "a");
+    insertNode(tree, "b");
+    insertNode(tree, "c");
+    insertNode(tree, "d");
+    ck_assert_ptr_eq(getRightChild, "d");
+
+}
+
+
 
 /* ---------- Suite and Runner ---------- */
 
@@ -144,6 +166,11 @@ Suite *tree_suite(void) {
     tcase_add_test(tc, test_get_root_when_no_data);
     tcase_add_test(tc, test_get_root_when_data);
     // tcase_add_test(tc, test_correct_height);
+
+    tcase_add_test(tc, test_find_node_similar_name);
+    tcase_add_test(tc, case_sensitive);
+
+    tcase_add_test(tc, test_right);
 
   
 
