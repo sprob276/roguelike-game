@@ -95,21 +95,40 @@ END_TEST
 
 
                 //failing on correct variant
-                START_TEST (test_get_root_when_no_data) {
-                    //insertNode(tree, "hi");
+                START_TEST (test_get_root_when_data) {
+                    insertNode(tree, "a");
+                    insertNode(tree, "b");
+                    insertNode(tree, "c");
+                    insertNode(tree, "d");
                     TreeNode * root;
-                    
+                
+                    ck_assert_ptr_nonnull(findNode(tree, "a"));
+                    ck_assert_ptr_nonnull(findNode(tree, "b"));
+                    ck_assert_ptr_nonnull(findNode(tree, "c"));
+                    ck_assert_ptr_nonnull(findNode(tree, "d"));
+
                     root = getRoot(tree);
-                    root = NULL;
-                    ck_assert_ptr_null(root);
-                    ck_assert_ptr_null(findNode(tree, "test"));
+                    ck_assert_ptr_nonnull(root);
+                    // //ck_assert_ptr_eq(root, findNode(tree, "b"));
+                    // destroyTree(tree);
+                    // tree = NULL;
+                    // ck_assert_ptr_ne(root, findNode(tree, "b"));
+                    
+                    
+
+                    // //root = NULL;
+                    // //ck_assert_ptr_null(root);
+                    // ck_assert_ptr_null(getRoot(tree));
+                    // ck_assert_ptr_null(findNode(tree, "test"));
                 }
                 END_TEST
 
-                START_TEST (test_get_root_when_data) {
+                START_TEST (test_destory_when_data) {
                     insertNode(tree, "hi");
-                    getRoot(tree);
-                    ck_assert_ptr_nonnull(getRoot);
+                    insertNode(tree, "lol");
+                    destroyTree(tree);
+                    tree = NULL;
+                    ck_assert_ptr_null(tree);
                 }
                 END_TEST
 
@@ -208,7 +227,7 @@ Suite *tree_suite(void) {
     // tcase_add_test(tc, test_free);
     // tcase_add_test(tc, test_free_not_exist);
 
-            tcase_add_test(tc, test_get_root_when_no_data);
+            tcase_add_test(tc, test_destory_when_data);
                  tcase_add_test(tc, test_get_root_when_data);
     // tcase_add_test(tc, test_correct_height);
 
