@@ -95,11 +95,12 @@ END_TEST
 
 START_TEST (test_get_root_when_no_data) {
     //insertNode(tree, "hi");
-    TreeNode * node;//new
-    node = getRoot(tree);//new
-    //getRoot(tree);
-    //ck_assert_ptr_null(getRoot);
-    ck_assert_ptr_null(node);
+    //TreeNode * node;//new
+    //node = getRoot(tree);//new
+    getRoot(tree);
+    ck_assert_ptr_null(getRoot);
+    //ck_assert_ptr_null(node); //new
+   
 }
 END_TEST
 
@@ -254,6 +255,18 @@ START_TEST (test_paths) {
 }
 END_TEST
 
+START_TEST (test_right_but_no_left) {
+    insertNode(tree, "a");
+    insertNode(tree, "b");
+    TreeNode * right;
+    TreeNode * left;
+    right = getRightChild(getNodeData(getRoot(tree)));
+    left = getLeftChild(getNodeData(getRoot(tree)));
+
+    ck_assert_ptr_eq(right, findNode(tree, "b"));
+    ck_assert_ptr_null(left);
+}
+END_TEST
 
 
 
@@ -296,6 +309,8 @@ Suite *tree_suite(void) {
    tcase_add_test(tc, test_find_non_existent);
 
    tcase_add_test(tc, test_paths);
+
+   tcase_add_test(tc, test_right_but_no_left);
 
 
   
