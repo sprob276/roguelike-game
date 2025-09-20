@@ -111,70 +111,70 @@ START_TEST (test_get_root_when_data) {
 }
 END_TEST
 
-                //failing on correct variant
-               // START_TEST (test_get_root_when_data) {
-                //     insertNode(tree, "a");
-                //     insertNode(tree, "b");
-                //     insertNode(tree, "c");
-                //     insertNode(tree, "d");
-                //     TreeNode * root;
+            //    // failing on correct variant
+            //    START_TEST (test_get_root_when_data) {
+            //         insertNode(tree, "a");
+            //         insertNode(tree, "b");
+            //         insertNode(tree, "c");
+            //         insertNode(tree, "d");
+            //         TreeNode * root;
                 
-                //     ck_assert_ptr_nonnull(findNode(tree, "a"));
-                //     ck_assert_ptr_nonnull(findNode(tree, "b"));
-                //     ck_assert_ptr_nonnull(findNode(tree, "c"));
-                //     ck_assert_ptr_nonnull(findNode(tree, "d"));
-                //     ck_assert_ptr_null(findNode(tree, "e"));
+            //         ck_assert_ptr_nonnull(findNode(tree, "a"));
+            //         ck_assert_ptr_nonnull(findNode(tree, "b"));
+            //         ck_assert_ptr_nonnull(findNode(tree, "c"));
+            //         ck_assert_ptr_nonnull(findNode(tree, "d"));
+            //         ck_assert_ptr_null(findNode(tree, "e"));
 
-                //     root = getRoot(tree);
-                //     ck_assert_ptr_nonnull(root);
-                //     // //ck_assert_ptr_eq(root, findNode(tree, "b"));
-                //     // destroyTree(tree);
-                //     // tree = NULL;
-                //     // ck_assert_ptr_ne(root, findNode(tree, "b"));
+            //         root = getRoot(tree);
+            //         ck_assert_ptr_nonnull(root);
+            //         // //ck_assert_ptr_eq(root, findNode(tree, "b"));
+            //         // destroyTree(tree);
+            //         // tree = NULL;
+            //         // ck_assert_ptr_ne(root, findNode(tree, "b"));
                     
                     
 
-                //     // //root = NULL;
-                //     // //ck_assert_ptr_null(root);
-                //     // ck_assert_ptr_null(getRoot(tree));
-                //     // ck_assert_ptr_null(findNode(tree, "test"));
-                // }
-                // END_TEST
+            //         // //root = NULL;
+            //         // //ck_assert_ptr_null(root);
+            //         // ck_assert_ptr_null(getRoot(tree));
+            //         // ck_assert_ptr_null(findNode(tree, "test"));
+            //     }
+            //     END_TEST
 
-                // START_TEST (test_destory_when_data) {
-                //     insertNode(tree, "hi");
-                //     insertNode(tree, "lol");
-                //     destroyTree(tree);
-                //     tree = NULL;
-                //     ck_assert_ptr_null(tree);
-                // }
-                // END_TEST
+                START_TEST (test_destory_when_data) {
+                    insertNode(tree, "hi");
+                    insertNode(tree, "lol");
+                    destroyTree(tree);
+                    tree = NULL;
+                    ck_assert_ptr_null(tree);
+                }
+                END_TEST
 
-// START_TEST (test_correct_height) {
-//     // insertNode(tree, "hi");
-//     // insertNode(tree, "rob");
-//     // insertNode(tree, "bye");
-//     // insertNode(tree, "tea");
-//     // //ck_assert_int_eq(getNodeHeight("tea"), 1);
-//     // //char * address = findNode(tree, "tea");
-//     // int result;
-//     // result = getNodeHeight(findNode(tree, "tea"));
-//     // printf("result is %d", result);
-//     // ck_assert_int_eq(result, 3);
+            // START_TEST (test_correct_height) {
+            //     insertNode(tree, "hi");
+            //     insertNode(tree, "rob");
+            //     insertNode(tree, "bye");
+            //     insertNode(tree, "tea");
+            //     //ck_assert_int_eq(getNodeHeight("tea"), 1);
+            //     //char * address = findNode(tree, "tea");
+            //     int result;
+            //     result = getNodeHeight(findNode(tree, "tea"));
+            //     printf("result is %d", result);
+            //     ck_assert_int_eq(result, 3);
 
-// }
+            // }
 
-//might be repetitive
-// START_TEST (test_find_node_similar_name) {
-//     insertNode(tree, "eating");
-//     insertNode(tree, "eats");
-//     ck_assert_ptr_null(findNode(tree, "eat"));
-// }
+            //might be repetitive
+            START_TEST (test_find_node_similar_name) {
+                insertNode(tree, "eating");
+                insertNode(tree, "eats");
+                ck_assert_ptr_null(findNode(tree, "eat"));
+            }
 
-// START_TEST (case_sensitive) {
-//     insertNode(tree, "Eat");
-//     ck_assert_ptr_null(findNode(tree, " Eat "));
-// }
+            START_TEST (case_sensitive) {
+                insertNode(tree, "Eat");
+                ck_assert_ptr_null(findNode(tree, " Eat "));
+            }
 
 START_TEST (test_right) { //this one failed but lowered the score??
     insertNode(tree, "a");
@@ -353,16 +353,16 @@ Suite *tree_suite(void) {
     tcase_add_test(tc, test_finding_node_when_empty_with_contents);
     tcase_add_test(tc, test_compare_strings_when_equal);
 
-    // tcase_add_test(tc, test_free);
-    // tcase_add_test(tc, test_free_not_exist);
+    // tcase_add_test(tc, test_get_root_when_data); //
+    // tcase_add_test(tc, test_free_not_exist); //
 
-            //tcase_add_test(tc, test_destory_when_data);
+            tcase_add_test(tc, test_destory_when_data); //
             tcase_add_test(tc, test_get_root_when_no_data);
                  tcase_add_test(tc, test_get_root_when_data);
-    // tcase_add_test(tc, test_correct_height);
+    //tcase_add_test(tc, test_correct_height); //
 
-    // tcase_add_test(tc, test_find_node_similar_name);
-    // tcase_add_test(tc, case_sensitive);
+    tcase_add_test(tc, test_find_node_similar_name); //
+    tcase_add_test(tc, case_sensitive); //
 
     tcase_add_test(tc, test_right);
 
