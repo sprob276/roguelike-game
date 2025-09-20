@@ -66,32 +66,7 @@ START_TEST(test_compare_strings_when_equal) {
 }
 END_TEST
 
-//
-// START_TEST(test_free) {
-//     insertNode(tree, "hahaha");
-//     char *copy = copyString("hahaha");
-//     //ck_assert_ptr_nonnull(copy); //checks if not equal to null
-//     destroyString(copy);
 
-//     copy = NULL; //
-//     ck_assert_ptr_null(copy); //checks if equal to null   
-    
-
-// }
-// END_TEST
-
-// START_TEST(test_free_not_exist) {
-//     insertNode(tree, "hahaha");
-//     char *copy = copyString("hahahaha");
-//     //ck_assert_ptr_nonnull(copy); //checks if not equal to null
-//     destroyString(copy);
-
-//     copy = NULL; //
-//     ck_assert_ptr_null(copy); //checks if equal to null   
-    
-
-// }
-// END_TEST
 
 START_TEST (test_get_root_when_no_data) {
         //insertNode(tree, "hi");
@@ -320,13 +295,11 @@ Suite *tree_suite(void) {
     tcase_add_test(tc, test_finding_node_when_empty_with_contents);
     tcase_add_test(tc, test_compare_strings_when_equal);
 
-    // tcase_add_test(tc, test_get_root_when_data); //
-    // tcase_add_test(tc, test_free_not_exist); //
+  
 
-            tcase_add_test(tc, test_destory_when_data); //
-            tcase_add_test(tc, test_get_root_when_no_data);
-                // tcase_add_test(tc, test_get_root_when_data);
-    //tcase_add_test(tc, test_correct_height); //
+    tcase_add_test(tc, test_destory_when_data); //
+    tcase_add_test(tc, test_get_root_when_no_data);
+
 
     tcase_add_test(tc, test_find_node_similar_name); //
     tcase_add_test(tc, case_sensitive); //
@@ -353,7 +326,6 @@ Suite *tree_suite(void) {
 
     tcase_add_test(tc, test_create_tree);
 
-    //tcase_add_test(tc, test_add_node_with_null);
   
 
     suite_add_tcase(s, tc);
