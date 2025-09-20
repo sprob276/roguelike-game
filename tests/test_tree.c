@@ -339,12 +339,12 @@ START_TEST (test_create_tree) {
 }
 END_TEST
 
-START_TEST (test_add_node_with_space) {
+START_TEST (test_add_node_with_null) {
     int result;
-    result = insertNode(tree, "He llo");
+    result = insertNode(tree, NULL);
     
     //result = findNode(tree, "He llo");
-    ck_assert_int_eq(result, 0);
+    ck_assert_int_ne(result, 0);
 }
 
 
@@ -399,7 +399,7 @@ Suite *tree_suite(void) {
 
     tcase_add_test(tc, test_create_tree);
 
-    tcase_add_test(tc, test_add_node_with_space);
+    tcase_add_test(tc, test_add_node_with_null);
   
 
     suite_add_tcase(s, tc);
