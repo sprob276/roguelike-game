@@ -104,7 +104,7 @@ START_TEST (case_sensitive) {
 }
 END_TEST
 
-START_TEST (test_right) { //this one failed but lowered the score??
+START_TEST (test_right) { 
     insertNode(tree, "a");
     insertNode(tree, "b");
     insertNode(tree, "c");
