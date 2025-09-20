@@ -69,12 +69,10 @@ END_TEST
 
 
 START_TEST (test_get_root_when_no_data) {
-        //insertNode(tree, "hi");
-        //TreeNode * node;//new
-        //node = getRoot(tree);//new
+
     getRoot(tree);
     ck_assert_ptr_null(getRoot);
-        //ck_assert_ptr_null(node); //new
+    
     
 }
 END_TEST
@@ -125,9 +123,6 @@ START_TEST (test_right) { //this one failed but lowered the score??
 
     ck_assert_int_eq(result, 0); //should be 0 if equal
 
-    
-    
-    //ck_assert_ptr_eq(getRightChild(findNode(tree, "d")), "d");
 
 }
 END_TEST
@@ -203,7 +198,6 @@ START_TEST (test_paths) {
     //insertNode(tree, "c");
     insertNode(tree, "d");
 
-    // ck_assert_ptr_eq(findNode(tree, "a"), getNodeData(findNode(tree, "a")));
 }
 END_TEST
 
@@ -239,11 +233,9 @@ START_TEST (test_left_but_no_right) {
 }
 END_TEST
 
-//newnew
+
 START_TEST (test_insert_same_string) {
     
-    // char copy1 = "Hello";
-    // char copy2 = "Hello";
     void * copy1 = copyString("Hello");
     void * copy2 = copyString("Hello");
     insertNode(tree, copy1);
