@@ -330,6 +330,16 @@ START_TEST (test_insert_same_string) {
 END_TEST
 
 
+START_TEST (test_create_tree) {
+    Tree * newTree;
+    newTree = createTree(compareStrings, destroyString, copyString);
+    ck_assert_ptr_nonnull(newTree);
+    destroyTree(newTree);
+    newTree = NULL;
+}
+END_TEST
+
+
 
 
 /* ---------- Suite and Runner ---------- */
@@ -378,6 +388,8 @@ Suite *tree_suite(void) {
     tcase_add_test(tc, test_height_one_child);
 
     tcase_add_test(tc, test_insert_same_string);
+
+    tcase_add_test(tc, test_create_tree);
   
 
     suite_add_tcase(s, tc);
