@@ -235,6 +235,8 @@ START_TEST (test_height_one_child) {
 }
 END_TEST
 
+
+
 START_TEST (test_free_when_empty) {
 
     destroyTree(tree);
@@ -307,7 +309,30 @@ START_TEST (test_left_but_no_right) {
 }
 END_TEST
 
+//newnew
+START_TEST (test_insert_same_string) {
+    
+    // char copy1 = "Hello";
+    // char copy2 = "Hello";
+    void * copy1 = copyString("Hello");
+    void * copy2 = copyString("Hello");
+    insertNode(tree, copy1);
+    insertNode(tree, copy2);
 
+    TreeNode * node;
+    node = findNode(tree, "Hello");
+    ck_assert_ptr_nonnull(node);
+
+    int result;
+    result = compareStrings(getNodeData(node), "Hello");
+    ck_assert_int_eq(result, 0);
+
+    ck_assert_ptr_ne(getNodeData(node), copy1);
+    ck_assert_ptr_ne(getNodeData(node), copy2);
+    destroyString(copy1);
+    destroyString(copy2);
+}
+END_TEST
 
 
 
@@ -356,6 +381,8 @@ Suite *tree_suite(void) {
     tcase_add_test(tc, test_height_when_empty);
 
     tcase_add_test(tc, test_height_one_child);
+
+    tcase_add_test(tc, test_insert_same_string);
   
 
     suite_add_tcase(s, tc);
