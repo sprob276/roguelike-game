@@ -339,6 +339,14 @@ START_TEST (test_create_tree) {
 }
 END_TEST
 
+START_TEST (test_add_node_with_space) {
+    int result;
+    result = insertNode(tree, "He llo");
+    
+    //result = findNode(tree, "He llo");
+    ck_assert_int_eq(result, 0);
+}
+
 
 
 
@@ -390,6 +398,8 @@ Suite *tree_suite(void) {
     tcase_add_test(tc, test_insert_same_string);
 
     tcase_add_test(tc, test_create_tree);
+
+    tcase_add_test(tc, test_add_node_with_space);
   
 
     suite_add_tcase(s, tc);
